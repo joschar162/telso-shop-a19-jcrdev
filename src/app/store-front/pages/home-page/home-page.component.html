@@ -5,10 +5,10 @@
 <div
   class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-2 gap-2"
 >
-  <product-card></product-card>
-  <product-card></product-card>
-  <product-card></product-card>
-  <product-card></product-card>
-  <product-card></product-card>
-  <product-card></product-card>
+  @for (product of productsResource.value()?.products; track $index) {
+
+  <product-card [product]="product"></product-card>
+  }@empty {
+  <p>No hay Productos</p>
+  }
 </div>
