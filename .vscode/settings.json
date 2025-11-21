@@ -2,7 +2,8 @@
   "github.copilot.nextEditSuggestions.enabled": true,
   "angular-schematics.schematicsDefaultOptions": {
     "angular-*": {
-      "externalTemplate": true
+      "externalTemplate": true,
+      "skipStyle": true
     },
     "angular-component": {
       "skipChangeDetectionOnPush": true
