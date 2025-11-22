@@ -1,1 +1,16 @@
-<p>gender-page works!</p>,
+<h1 class="text-3xl font-bold font-montserrat">
+  Todo los Productos <span class="text-accent">{{ gender() }}</span>
+</h1>
+<h2 class="text-xl mb-2">Para toda las edades y gustos</h2>
+<hr class="mb-2" />
+
+<div
+  class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-2 gap-2"
+>
+  @for (product of productsResource.value()?.products; track $index) {
+
+  <product-card [product]="product"></product-card>
+  }@empty {
+  <p>No hay Productos</p>
+  }
+</div>
