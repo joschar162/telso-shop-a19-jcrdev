@@ -30,4 +30,8 @@ export class ProductsService {
       })
       .pipe(tap((resp) => console.log(resp)));
   }
+
+  getProductByIdSlug(idSlug: string): Observable<Product> {
+    return this.http.get<Product>(`${baseUrl}/products/${idSlug}`);
+  }
 }
