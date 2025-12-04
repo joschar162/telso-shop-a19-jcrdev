@@ -14,7 +14,7 @@ import { RouterLinkActive, RouterLink } from '@angular/router';
 })
 export class PaginationComponent {
   pages = input(0);
-  currentPage = input<number>(1);
+  currentPage = input<number>(4);
   activePage = linkedSignal(this.currentPage);
   getPagesList = computed(() => {
     return Array.from({ length: this.pages() }, (_, i) => i + 1);
