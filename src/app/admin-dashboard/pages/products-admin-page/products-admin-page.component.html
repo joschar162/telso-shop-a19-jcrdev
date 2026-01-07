@@ -1,1 +1,32 @@
-<p>products-admin-page works!</p>,
+<h1 class="text-2xl font-bold">Listado de Productos</h1>
+<h2 class="text-lg">
+  Total de Productos:
+  <span class="text-accent">{{ productsResource.value()?.count }}</span>
+</h2>
+<div class="divider"></div>
+
+<!-- pagination -->
+<div class="flex gap-2 items-center h-20">
+  <app-pagination
+    [pages]="productsResource.value()?.pages ?? 0"
+    [currentPage]="paginationService.currentPage()"
+  />
+
+  <!-- opciones de paginación  -->
+  <select
+    class="select select-bordered w-32 max-w-xs"
+    (change)="productsPerPage.set(+selectPerPage.value)"
+    #selectPerPage
+  >
+    <option [value]="10">10</option>
+    <option [value]="20">20</option>
+    <option [value]="50">50</option>
+    <option [value]="100">100</option>
+  </select>
+  <!-- opciones de paginación end -->
+</div>
+<!-- pagination end -->
+
+<!--  product list -->
+<product-table [products]="productsResource.value()?.products ?? []" />
+<!-- product list end -->
