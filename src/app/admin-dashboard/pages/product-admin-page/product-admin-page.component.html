@@ -1,1 +1,11 @@
-<p>product-admin-page works!</p>,
+@if (productResource.isLoading()) {
+<div>ide del producto: {{ productId() }}</div>
+<div class="flex justify-center items-center h-screen">
+  <span class="loading loading-spinner loading-lg"></span>
+</div>
+}
+<!--  -->
+@if (productResource.hasValue()) {
+
+<product-details [product]="productResource.value()!" />
+}
